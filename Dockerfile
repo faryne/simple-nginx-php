@@ -30,7 +30,7 @@ RUN wget https://getcomposer.org/download/1.6.5/composer.phar -O composer && \
 
 # 設定預設頁面
 RUN echo "Hello World (By simple-nginx-php $VERSION). See https://github.com/faryne/simple-nginx-php for more info." > /var/www/html/index.html
-RUN echo "<?php phpinfo(); ?>" > /var/www/html/index.php
+RUN echo "<?php phpinfo();?><p><small>Hello World (By simple-nginx-php $VERSION). See https://github.com/faryne/simple-nginx-php for more info.</small></p>" > /var/www/html/index.php
 
 # 複製 nginx / php 設定檔
 COPY ./conf/nginx/nginx.conf /etc/nginx
@@ -39,8 +39,8 @@ COPY ./conf/php/cli/php.ini /etc/php/7.2/cli
 COPY ./conf/php/fpm/php.ini /etc/php/7.2/fpm
 COPY ./conf/php/fpm/php-fpm.conf /etc/php/7.2/fpm
 
-# 設定 Entrypoint 
+# 設定開機後（？）要啟動的服務，但是寫 ENTRYPOINT / CMD 好像都會出錯導致 container 跑不起來
+# 只好先把檔案複製過去，啟動後再手動執行 
 WORKDIR /
-COPY ["./start.sh", "/"]
+COPY ./start.sh /
 RUN chmod 0755 /start.sh 
-#CMD ["/bin/bash", "-c", "/start.sh"]
