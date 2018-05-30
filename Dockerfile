@@ -44,3 +44,4 @@ COPY ./conf/php/fpm/php-fpm.conf /etc/php/7.2/fpm
 WORKDIR /
 COPY ./start.sh /
 RUN chmod 0755 /start.sh 
+ENTRYPOINT bash -C '/start.sh'; bash
