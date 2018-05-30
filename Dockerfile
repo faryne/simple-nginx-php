@@ -20,8 +20,8 @@ RUN echo $TZ > /etc/timezone && \
 # 安裝 nginx / git / wget / php7.2 等
 RUN apt-get install -y \
         nginx git wget php7.2-common php7.2-fpm php7.2-cli
-        ##php7.2-mysqli php7.2-mbstring php7.2-curl php7.2-zip \
-        ##php7.2-gd php7.2-json php7.2-odbc php7.2-soap php7.2-bcmath 
+        php7.2-mysqli php7.2-mbstring php7.2-curl php7.2-zip \
+        php7.2-gd php7.2-json php7.2-odbc php7.2-soap php7.2-bcmath 
 
 # 裝好 composer 套件
 RUN wget https://getcomposer.org/download/1.6.5/composer.phar -O composer && \ 
