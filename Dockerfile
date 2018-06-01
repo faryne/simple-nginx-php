@@ -6,7 +6,7 @@ MAINTAINER Faryne <faryne@gmail.com>
 EXPOSE 80 443
 
 # 設定環境變數
-ENV VERSION=0.0.2
+ENV VERSION 0.0.7
 ENV TZ 'Asia/Taipei'
 
 # 設定時區資訊等，避免建置時 hang 住沒辦法運作
