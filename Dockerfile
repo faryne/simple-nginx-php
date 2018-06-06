@@ -41,7 +41,7 @@ COPY ./conf/php/fpm/php-fpm.conf /etc/php/7.2/fpm
 
 # 設定開機後（？）要啟動的服務，但是寫 ENTRYPOINT / CMD 好像都會出錯導致 container 跑不起來
 # 只好先把檔案複製過去，啟動後再手動執行 
-WORKDIR /
-COPY ./start.sh /
-RUN chmod 0755 /start.sh 
-ENTRYPOINT bash -C '/start.sh'; bash
+#WORKDIR /
+#COPY ./start.sh /
+#RUN chmod 0755 /start.sh 
+#ENTRYPOINT bash -C '/start.sh'; bash
