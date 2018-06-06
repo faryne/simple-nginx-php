@@ -1,13 +1,16 @@
 # dockerfile 基本資訊
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 MAINTAINER Faryne <faryne@gmail.com>
 
 # 設定開啟的 port 
 EXPOSE 80 443
 
 # 設定環境變數
-ENV VERSION 0.0.10
+ENV VERSION 0.0.12
 ENV TZ 'Asia/Taipei'
+
+RUN apt-get update && apt-get install -y python-software-properties software-properties-common
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 
 # 設定時區資訊等，避免建置時 hang 住沒辦法運作
 RUN echo $TZ > /etc/timezone && \
